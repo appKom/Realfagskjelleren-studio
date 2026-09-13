@@ -9,7 +9,8 @@ export const homePageType = defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'text',
+      rows: 2,
       validation: (Rule) => Rule.required(),
     }),
 
