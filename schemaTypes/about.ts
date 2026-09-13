@@ -29,6 +29,24 @@ export const aboutType = defineType({
     }),
 
     defineField({
+      name: 'introImage',
+      title: 'Intro image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'introImageAlt',
+      title: 'Intro image alt text',
+      type: 'string',
+      description: 'Describe the image for accessibility',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: 'historyTitle',
       title: 'History title',
       type: 'string',
@@ -45,9 +63,13 @@ export const aboutType = defineType({
   ],
 
   preview: {
-    prepare() {
+    select: {
+      media: 'introImage',
+    },
+    prepare({media}) {
       return {
         title: 'About',
+        media,
       }
     },
   },
