@@ -7,11 +7,48 @@ export const aboutType = defineType({
 
   fields: [
     defineField({
-      name: 'text',
-      title: 'About text',
+      name: 'introTitle',
+      title: 'Intro title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'introSubtitle',
+      title: 'Intro subtitle',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'introText',
+      title: 'Intro text',
       type: 'text',
-      rows: 10,
+      rows: 6,
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'historyTitle',
+      title: 'History title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'historyText',
+      title: 'History text',
+      type: 'text',
+      rows: 15,
       validation: (Rule) => Rule.required(),
     }),
   ],
+
+  preview: {
+    prepare() {
+      return {
+        title: 'About',
+      }
+    },
+  },
 })
