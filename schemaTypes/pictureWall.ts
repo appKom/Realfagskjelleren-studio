@@ -32,6 +32,13 @@ export const pictureWallType = defineType({
               description: 'Describe the image for accessibility',
               validation: (Rule) => Rule.required(),
             }),
+
+            defineField ({
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+              description: 'Optional text displayed below the image'
+            }),
           ],
 
           preview: {
